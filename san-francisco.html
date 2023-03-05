@@ -9,16 +9,17 @@
 <body>
     <h1>San Francisco Listing</h1>
     <script type="module">
-        import Typebot from 'https://cdn.jsdelivr.net/npm/@typebot.io/js@0.0/dist/web.js'
-      
-        Typebot.initBubble({
-          typebot: "vr-listing-demo-711ammo",
-          theme: {
-            button: { backgroundColor: "#0042DA", iconColor: "#FFFFFF" },
-            previewMessage: { backgroundColor: "#ffffff", textColor: "black" },
-            chatWindow: { backgroundColor: "#ffffff" },
-          },
-        });
-      </script>
+      import Typebot from 'https://cdn.jsdelivr.net/npm/@typebot.io/js@0.0/dist/web.js'
+    
+      Typebot.initBubble({
+        typebot: "vr-listing-demo-711ammo",
+        theme: {
+          button: { backgroundColor: "#0042DA", iconColor: "#FFFFFF" },
+          previewMessage: { backgroundColor: "#ffffff", textColor: "black" },
+          chatWindow: { backgroundColor: "#ffffff" },
+          prefilledVariables: {"filename": window.location.href}
+        },
+      });
+    </script>
 </body>
 </html>
