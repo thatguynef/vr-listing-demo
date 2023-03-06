@@ -13,13 +13,34 @@
     
       Typebot.initBubble({
         typebot: "vr-listing-demo-711ammo",
+        prefilledVariables: {
+          "filename": getFilenameFromUrl(),
+          "page_title": formatCurrentTitle()
+        },
         theme: {
           button: { backgroundColor: "#0042DA", iconColor: "#FFFFFF" },
           previewMessage: { backgroundColor: "#ffffff", textColor: "black" },
-          chatWindow: { backgroundColor: "#ffffff" },
-          prefilledVariables: {"filename": window.location.href}
+          chatWindow: { backgroundColor: "#ffffff" }
         },
       });
+  
+      function getFilenameFromUrl() {
+        const path = window.location.pathname;
+        const filenameWithExtension = path.substring(path.lastIndexOf('/')+1);
+        const filename = filenameWithExtension.replace('.html', '');
+        return filename;
+      }
+  
+      function formatCurrentTitle() {
+        const path = window.location.pathname;
+        const filename = path.substring(path.lastIndexOf('/') + 1);
+      
+        const words = filename.replace(/-/g, ' ').replace('.html', '').split(' ');
+        const capitalizedWords = words.map(word => word.charAt(0).toUpperCase() + word.slice(1));
+        const formattedTitle = capitalizedWords.join(' ');
+      
+        return formattedTitle;
+      }
     </script>
 </body>
 </html>
